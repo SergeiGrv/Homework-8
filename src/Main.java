@@ -3,7 +3,8 @@ import java.util.Map;
 
 public class Main {
     public final static String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
+    static int max = 0;
+    static int min = Integer.MAX_VALUE;
     public static void main(String[] args) {
         Map<Character, Integer> map = new HashMap<>();
         String newText = text.toLowerCase();
@@ -25,8 +26,28 @@ public class Main {
 
         System.out.println(map);
 
-        int max = 0;
-        int min = Integer.MAX_VALUE;
+        System.out.println(maxValue(map));
+        System.out.println(minValue(map));
+
+
+    }
+
+    private static int maxValue(Map<Character, Integer> map){
+        for(Map.Entry<Character, Integer> entry : map.entrySet()){
+            if(entry.getValue() > max){
+                max =entry.getValue();
+            }
+        }
+        return max;
+    }
+
+    private static int minValue(Map<Character, Integer> map){
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if(entry.getValue() < min){
+                min =entry.getValue();
+            }
+        }
+        return min;
     }
 }
 
